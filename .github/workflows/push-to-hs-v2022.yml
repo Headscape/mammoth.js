@@ -26,7 +26,8 @@ jobs:
         run: |
           echo "using ${{ github.ref }} to rsync from github to hs.to v2022"
           echo '.git' > exclude-files.txt
-          ls
+          echo '.github' > exclude-files.txt
+          ls -alh
 
       - name: Finished
         run: |
