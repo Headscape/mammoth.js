@@ -4,14 +4,11 @@
 
     function handleFileSelect(event) {
         var options = {
-            styleMap: [
-                "p[style-name='Section Title'] => h1:fresh",
-                "p[style-name='Subsection Title'] => h2:fresh"
-            ]
+            styleMap: customStyleMap
         };
 
         readFileInputEventAsArrayBuffer(event, function(arrayBuffer) {
-            mammoth.convertToHtml({arrayBuffer: arrayBuffer})
+            mammoth.convertToHtml({arrayBuffer: arrayBuffer}, options)
                 .then(displayResult)
                 .done();
         });
