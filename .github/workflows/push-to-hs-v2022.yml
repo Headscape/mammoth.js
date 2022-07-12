@@ -27,6 +27,7 @@ jobs:
           echo "using ${{ github.ref }} to rsync from github to hs.to v2022"
           echo '.git' > exclude-files.txt
           echo '.github' >> exclude-files.txt
+          echo 'test/' >> exclude-files.txt
           ls -alh
           pwd
           rsync -vPa -e 'ssh' --exclude-from=exclude-files.txt ./ root@${PUSH_URL}:/var/www/mammoth/
