@@ -1,10 +1,10 @@
 //exports.customStyleMap = [
 var customStyleMap = [
-    "h1 => h2:fresh",
-    "h2 => h3:fresh",
-    "h3 => h4:fresh",
-    "h4 => h5:fresh",
-    "h5 => h6:fresh",
+    "p[style-name='Heading 1'] => h2:fresh",
+    "p[style-name='Heading 2'] => h3:fresh",
+    "p[style-name='Heading 3'] => h4:fresh",
+    "p[style-name='Heading 4'] => h5:fresh",
+    "p[style-name='Heading 5'] => h6:fresh",
     "p[style-name='Head1'] => h2:fresh",
     "p[style-name='Head2'] => h3:fresh",
     "p[style-name='Section Title'] => h2:fresh",
