@@ -4,6 +4,7 @@
 
     function handleFileSelect(event) {
         var options = {
+            transformDocument: mammoth.transforms.run(transformAllZWAdobeF),
             styleMap: customStyleMap
         };
 
