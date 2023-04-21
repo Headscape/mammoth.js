@@ -33,8 +33,8 @@ pipeline {
         sh("ddev config --project-name=$SAFE_PROJECT_NAME ")
         sh 'ddev config --web-environment-add="container_env=hs_staging"'
         // set URL before attempting to add hostname so we don't get hosts write errors
-        sh("sudo ddev hostname ${PROJECT_URL} 127.0.0.1 ")
-        //sh("ddev config --additional-hostnames=$SAFE_PROJECT_NAME ")
+        //sh("sudo ddev hostname ${PROJECT_URL} 127.0.0.1 ")
+        sh("ddev config --additional-hostnames=$SAFE_PROJECT_NAME ")
         sh("ddev config --additional-fqdns=$PROJECT_URL ")
       }
     }
