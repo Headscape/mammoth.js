@@ -53,3 +53,7 @@ body {
 .messages .warning {
     color: #cc6600;
 }
+
+.small-caps {
+    font-variant: small-caps;
+}
