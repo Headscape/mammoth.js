@@ -19,7 +19,6 @@ pipeline {
         sh 'pwd'
         // testing
         sh 'printenv'
-        sh("ddev describe ")
       }
     }
 
