@@ -4,7 +4,7 @@
 
     function handleFileSelect(event) {
         var options = {
-            transformDocument: mammoth.transforms.run(transformAllZWAdobeF),
+            transformDocument: mammoth.transforms.paragraph(hsGlobalTransformParagraph),
             styleMap: customStyleMap
         };
 
@@ -16,6 +16,7 @@
     }
 
     function displayResult(result) {
+        //result.value = result.value.replace(/<p>/g, '<p data-ref="mammoth">');
         document.getElementById("output").innerHTML = result.value;
 
         var messageHtml = result.messages.map(function(message) {

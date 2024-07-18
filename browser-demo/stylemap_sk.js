@@ -23,9 +23,35 @@ var customStyleMap = [
 ];
 
 function transformAllZWAdobeF(run) {
-    if (run.font && run.font.toLowerCase() == 'zwadobef') {
-        return {};
-    } else {
+    //"ZWAdobeF"
+    if (! run.font || run.font.toLowerCase() != 'zwadobef') {
         return run;
     }
+    return {};
+}
+
+
+function hsGlobalTransformParagraph(paragraph) {
+    // standardise Toc style names
+    if (paragraph.styleName && paragraph.styleName) {
+        var checkToc = paragraph.styleName.toLowerCase();
+        if ( checkToc == "toc" || checkToc == "_toc") {
+            paragraph = {...paragraph, styleName: "toc"};
+        }
+    }
+
+    if (paragraph.children && paragraph.children.length > 0) {
+        var checkChildren = [];
+        paragraph.children.forEach(function (child) {
+            console.log("SK para child", child.type, child.font, child);
+            // only keep things that don;t have the font ZWAdobeF
+            if ( ! child.font || child.font.toLowerCase() != 'zwadobef' ) {
+                checkChildren.push(child);
+            }
+        });
+        paragraph = {...paragraph, children: checkChildren};
+    }
+
+    console.log("SK para",paragraph.styleId,paragraph.styleName,paragraph);
+    return paragraph;
 }
